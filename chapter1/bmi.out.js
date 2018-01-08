@@ -24,11 +24,11 @@ var BMI = function () {
                 value: function print() {
                         var res = '표준';
                         if (this.bmi >= 25) {
-                                res = '비만';
+                                res = 'fat';
                         } else if (this.bmi >= 18.5) {
-                                res = '표준';
+                                res = 'standard';
                         } else {
-                                res = '저체중';
+                                res = 'thin';
                         }
                         console.log("BMI = " + res);
                 }
