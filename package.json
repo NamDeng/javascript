@@ -4,7 +4,7 @@
   "description": "reactjs promgraming study",
   "main": "index.js",
   "scripts": {
-          "build" : "babel chapter1/bmi.js -o chapter1/bmi.out.js",
+          "build" : "babel chapter1/bmi.js -o chapter1/bmi.out.js --source-maps",
           "watch": "babel chapter1/bmi.js -w -o chapter1/bmi.out.js",
           "start" : "node chapter1/bmi.out.js",
           "test": "echo \"Error: no test specified\" && exit 1"

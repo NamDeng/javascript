@@ -39,3 +39,5 @@ var BMI = function () {
 
 var bmi = new BMI(168, 75);
 bmi.print();
+
+//# sourceMappingURL=bmi.out.js.map
