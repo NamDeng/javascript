@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+        <title>React Clock</title>
+</head>
+<body>
+    <div id="disp"></div>
+    <script type="text/babel">
+
+    setInterval(update, 1000);
+
+    function update(){
+        const now = new Date();
+        const hh = z2(now.getHours());
+        const mm = z2(now.getMinutes());
+        const ss = z2(now.getSeconds());
+        const binStr = hh + mm + ss;
+        const style0 = {color : 'brwon'};
+        const style1 = {color : 'red'};
+
+        const lines = [];
+        const length = binStr.length;
+        for(let i=0; i<length; i++){
+            const v = parseInt(binStr.substr(i, 1));
+            const bin = "0000" + v.toString(2);
+            const bin8 = bin.substr(bin.length - 4, 4);
+
+            const jLength = bin8.length;
+            for(let j=0; j<jLength; j++){
+                if(bin8.substr(j, 1) === '0'){
+                    lines.push(<span style={style0}>○</span>)
+                } else {
+                    lines.push(<span style={style1}>●</span>)
+                }
+            }
+        }
+
+        const disp = document.getElementById("disp");
+        ReactDOM.render(<div>{lines}</div>, disp);
+    }
+
+    function z2(x){
+           x = String("00" + x);
+           return x.substr(x.length-2, 2);
+    }
+
+
+    </script>
+</body>
+</html>
