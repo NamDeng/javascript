@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <title>React Programing!</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const TitleParts = (props) => (
+        <div style={{backgroundColor:'red', color: 'white'}}>
+          <h3>{props.title}</h3>
+        </div>
+    )
+    const ContentParts = (props) => (
+      <div style={{border:'1px solid blue', margin:15}}>
+        <div>줄거리: {props.body}</div>
+      </div>
+    )
+    const Book = (props) => (
+      <div>
+        <TitleParts title={props.title}></TitleParts>
+        <ContentParts body={props.body}></ContentParts>
+      </div>
+    )
+
+    ReactDOM.render(
+      (<div>
+        <Book title="테스트1" body="바디1"></Book>
+        <Book title="테스트2" body="바디2"></Book>
+        <Book title="테스트3" body="바디3"></Book>
+      </div>), document.getElementById("root"))
+  </script>
+
+</body>
+</html>
