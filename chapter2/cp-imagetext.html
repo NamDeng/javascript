@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+  const dom = <div>
+    <PhotoText image="pic1" label="오키나와에서의 하루"></PhotoText>
+    <PhotoText image="pic2" label="오키나와 해변"></PhotoText>
+    <PhotoText image="pic3" label="푸른 바다"></PhotoText>
+  </div>
+
+  ReactDOM.render(dom, document.getElementById("root"))
+
+    function PhotoText(props){
+      const url = "../img/" + props.image + ".jpg"
+      const label = props.lebel
+      const boxStyle = {
+        border: "1px solid silver",
+        margin: "8px",
+        padding: "4px"
+      }
+
+      return <div style={boxStyle}>
+        <img src={url} width="128"/>
+        <span>{label}</span>
+      </div>
+    }
+  </script>
+</body>
+</html>
